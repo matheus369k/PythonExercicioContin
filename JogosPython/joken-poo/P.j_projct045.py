@@ -1,0 +1,57 @@
+from pygame import mixer
+from random import randint
+from time import sleep
+def joken_po():
+    print('\033[0;35m=-='*37)
+    print(' '*40,'<   JOKEM PO!!!  >')
+    print('\n')
+    print('\033[0;33m( 0 ) = PEDRA\n( 1 ) = PAPEL\n( 2 ) = TESOURA\n')
+    player = int(input('QUAL SUA ESCOLHA:\033[0;34m'))
+    print('=-='*90,'\n')
+    print('PC....VS....PLAYER!!!')
+    mixer.init()
+    mixer.music.load('dragon-ball-z-jokenpo-mp3cutnet_zJ89TEMU.mp3')
+    mixer.music.play()
+    print('=-='*9,'\n')
+    print('JO..')
+    sleep(0.5)
+    print('KEN..')
+    sleep(0.5)
+    print('PO!!')
+    sleep(0.5)
+    print('=-='*9,'\n')
+    pc = randint(0,2)
+    escolha = ['PEDRA','PAPEl','TESOURA']
+    print('\033[0;34mPC JOGOU: {}\nJOGADOR JOGOU: {}'.format(escolha[pc],escolha[player]))
+    if pc == player:
+        mixer.init()
+        mixer.music.load('over01.wav')
+        mixer.music.play()
+        print('=-='*9,'\n')
+        print('\033[0;33mAMBOS ESCOLHERAM: ',escolha[player],'\033[0;34m ')
+        print('=-='*9,'\n')
+    elif player == 1 and pc == 0 or player == 2 and pc == 1 or player == 0 and pc == 2:
+        mixer.init()
+        mixer.music.load('You Win (Street Fighter) - Sound Effect.mp3')
+        mixer.music.play()
+        print('=-='*9,'\n')
+        print('\033[0;32mPARABENS!!!\033[0;34m\n')
+        print('\033[0;32mVOCE GANHOU!!\033[0;34m')
+        print('=-='*9,'\n')
+    elif player == 1 and pc == 2 or player == 2 and pc == 0 or player == 0 and pc == 1:
+        mixer.init()
+        mixer.music.load('Game Over sound effect.mp3')
+        mixer.music.play()
+        print('=-='*9,'\n')
+        print('\033[0;31mVOCE PERDEU!!\033[0;34m\n')
+        print('\033[0;31mBOA SORTE NA PROXIMA!!\033[0;34m')
+        print('=-='*9,'\n')
+    else:
+        mixer.init()
+        mixer.music.load('over01.wav')
+        mixer.music.play()
+        print('=-='*9,'\n')
+        print('\033[0;33mSO HA PEDRA PAPEL OU TESOURA!!!\033[0;34m')
+        print('=-='*9,'\n')
+while True:
+    joken_po()
